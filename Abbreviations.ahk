@@ -74,6 +74,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:mlay::Malaysia
 	:*:mexic::Mexic
 	:*:miami::Miami
+	:*:mg::MoneyGram
 	:*:netherland::Netherlands
 	:*:ntl::Netherlands
 	:*:nz::New Zealand
@@ -163,6 +164,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:lppass::da45OOLKiuofg07pOIDl$
 	:*:cpass::Daf354{#}Dg682
 	:*:mpass::da07031184
+	:*:wpass::5715024762
 	::sth::something
 	::stm::sometimes
 	::pdt::personal development time
@@ -178,7 +180,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	::ive::I've
 	::i::I
 	::im::I'm
-	:c*:id::I'd
+	:c:id::I'd
 	:*:itd::it'd
 	:*:wed::we'd
 	:*:isnt::isn't
@@ -207,8 +209,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:(::(){Left 1}
 	:*:[::[]{Left 1}
 	:*:{::{{}{}}{Left 1}
-	:*?:"::""{Left 1}
-	:*?:&::{Space}&{Space}
+	:*?:"::
+		SetTitleMatchMode 2 ;only match part of the file name
+		if WinActive(" - Excel") ;when the active Window is Excel
+			Send {F2}""{Left 1}
+		if !WinActive(" - Excel")
+			Send ""{Left 1}
+		return
 	::cs::customer service
 	::ctg::category
 	::ctgs::categories

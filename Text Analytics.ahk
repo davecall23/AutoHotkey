@@ -18,13 +18,15 @@ F1::Suspend,toggle ;toggle the suspended script
 
 { ;use in TA
 	::or::OR
-	:*:and::AND{Space}
-	:*:ant::AND NOT{Space}
+	::loor::or
+	:*:and::AND
+	:*:loand::and
+	:*:ant::AND NOT
 	:*:tmt::content_termcount:[ TO ]{Left 5}
 	:*:/*::/**/{Left 2}
 	SC027:: ;semicolon as a special key: https://www.autohotkey.com/docs/KeyList.htm#SpecialKeys
 		{
-			send {Right}{Space}
+			send {Right}
 			return
 		}
 	::ce::
@@ -33,7 +35,6 @@ F1::Suspend,toggle ;toggle the suspended script
 		send content_exact:""{Left 1}
 		return
 	}
-	:*:--::--------------------------------------------------------------------------------------------------------------
 }
 
 
