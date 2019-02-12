@@ -19,7 +19,7 @@ F1::Suspend,toggle ;toggle the suspended script
 { ;use in TA
 	::or::OR
 	::loor::or
-	:*:and::AND
+	::and::AND
 	:*:loand::and
 	:*:ant::AND NOT
 	:*:tmt::content_termcount:[ TO ]{Left 5}

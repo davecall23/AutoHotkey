@@ -34,7 +34,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:china::China
 	::cn::China
 	:*:chine::Chine
-	:*:chengdu::Chengdu
 	:*:colombia::Colombia
 	:*:croatia::Croatia
 	:*:denmark::Denmark
@@ -74,7 +73,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:mlay::Malaysia
 	:*:mexic::Mexic
 	:*:miami::Miami
-	:*:mg::MoneyGram
 	:*:netherland::Netherlands
 	:*:ntl::Netherlands
 	:*:nz::New Zealand
@@ -91,10 +89,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:portugal::Portugal
 	:*:romania::Romania
 	:*:rmn::Romania
-	:*:russia::Russia
+	::rs::Russia
 	:*:scotl::Scotland
 	:*:serbia::Serbia
-	:*:shanghai::Shanghai
 	:*:singapore::Singapore
 	::sgp::Singapore
 	:*:slovenia::Slovenia
@@ -108,7 +105,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:thailand::Thailand
 	:*:tld::Thailand
 	:*:turk::Turk
-	:*:tk::Turkey
+	::tk::Turkey
 	:*:ukrain::Ukraine
 	:*:venezuela::Venezuela
 	:*:vietnam::Vietnam
@@ -152,8 +149,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:asap::as soon as possible
 	:*:btw::by the way
 	::sm::social media
-	::sb::social brain
-	:*:mb::Model Builder
 	:*:ok::OK
 	:*:stsc::statistics
 	:*:daveno::davecallnor@gmail.com
@@ -206,13 +201,31 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*?:``a::å
 	:*?:``A::Å
 	:*?:celsius::℃
-	:*:(::(){Left 1}
-	:*:[::[]{Left 1}
-	:*:{::{{}{}}{Left 1}
+	:*:(::
+		SetTitleMatchMode 2 ;only match part of the file name
+		if WinActive(" - Excel") ;when the active Window is Excel
+			Send (
+		if !WinActive(" - Excel")
+			Send (){Left 1}
+		return
+	:*:[::
+		SetTitleMatchMode 2 ;only match part of the file name
+		if WinActive(" - Excel") ;when the active Window is Excel
+			Send [
+		if !WinActive(" - Excel")
+			Send []{Left 1}
+		return
+	:*:{::
+		SetTitleMatchMode 2 ;only match part of the file name
+		if WinActive(" - Excel") ;when the active Window is Excel
+			Send {{}
+		if !WinActive(" - Excel")
+			Send {{}{}}{Left 1}
+		return
 	:*?:"::
 		SetTitleMatchMode 2 ;only match part of the file name
 		if WinActive(" - Excel") ;when the active Window is Excel
-			Send {F2}""{Left 1}
+			Send "
 		if !WinActive(" - Excel")
 			Send ""{Left 1}
 		return
@@ -224,6 +237,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	::atb::attribute
 	::atbs::attributes
 	:*:uat::UAT
+	:*:qaed::QAed
+	::eg::e.g.
 }
 
 { ;features/hardware
@@ -262,7 +277,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:wf::Wi-Fi
 	::fp::fingerprint
 	:*:fps::FPS
-
 }
 
 { ;Brands
@@ -275,8 +289,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:asus::ASUS
 	:*:at&t::AT&T
 	::benq::BenQ
-	::bestbuy::Best Buy
-	:*:blackberry::BlackBerry
 	::bb::BlackBerry
 	:*:bbc::BBC
 	:*:bosch::Bosch
@@ -299,7 +311,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:facebook::Facebook
 	:*:facetime::FaceTime
 	:*:fb::Facebook
-	:*:firefox::Firefox
 	:*:ff::Firefox
 	::fuji::Fuji
 	:*:galaxy::Galaxy
@@ -309,7 +320,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:google::Google
 	:*:gg::Google
 	:*:gopro::GoPro
-	:*:grainger::Grainger
 	:*:honda::Honda
 	:*:hdr::HDR
 	::hp::HP
@@ -332,7 +342,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:lenovo::Lenovo
 	:*:lastpass::LastPass
 	::lg::LG
-	:*:ln::LexisNexis
 	:*:logitech::Logitech
 	:*:linkedin::LinkedIn
 	:*:linksys::Linksys
@@ -355,11 +364,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:nissan::Nissan
 	:*:nokia::Nokia
 	:*:norton::Norton
+	:*:npp::
+		SendRaw Notepad++ ;using SendRaw because of + sign
 	:*:nvidia::NVIDIA
 	::oppo::Oppo
 	:*:olympus::Olympus
 	:*:oneplus::OnePlus
 	:*:oa::OpenAir
+	:*:openair::OpenAir
 	:*:oracle::Oracle
 	:*:panasonic::Panasonic
 	:*:pentax::Pentax
@@ -370,7 +382,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	::ps::PS
 	:*:onenote::OneNote
 	:*:qualcomm::Qualcomm
-	:*:rsc::RS Component
 	:*:sandisk::SanDisk
 	:*:samsung::Samsung
 	::ss::Samsung
@@ -378,7 +389,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:sennheiser::Sennheiser 
 	:*:sina::Sina
 	:*:snapchat::Snapchat
-	:*:sodexo::Sodexo
 	:*:sony::Sony
 	:*:spotify::Spotify
 	:*:skype::Skype
@@ -390,15 +400,19 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:thinkpad::ThinkPad
 	:*:toshiba::Toshiba
 	:*:toyota::Toyota
+	:*:tm::Total Commander
 	:*:twitter::Twitter
 	:*:tt::Twitter
 	:*:tmobile::T-Mobile
 	:*:vba::VBA
 	:*:vodafone::Vodafone
+	:*:volvo::Volvo
+	:*:vv::Volvo
 	:*:verizon::Verizon
 	:*:vaio::VAIO
 	:*:viber::Viber
 	:*:visa::Visa
+	:*:visma::Visma
 	:*:walkman::Walkman
 	:*:wechat::WeChat
 	:*:weibo::Weibo
@@ -411,8 +425,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:yamaha::Yamaha
 	:*:yt::YouTube
 	:*:yahoo::Yahoo
-	:*:yh::Yahoo
-	::si::Selective Insurance
+	:*:yh::Yahoo	
 }
 
 { ;Names
@@ -422,26 +435,58 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	::mengni::Mengni
 	:*:xx::Xuanxuan
 	:*:xz::Xuan
-	:*:xb::Xiaobo
 	::fang::Fang
 	::dawei::Dawei
 	:*:dz::dawei.zhu
-	::jiena::Jiena
-	::olle::Olle
-	:*:espen::Espen
+	::jiena::Jiena	
 	:*:andreas::Andreas
 	:*:kjetil::Kjetil
-	:*:hakan::Håkan
 	:*:ekt::Ekaterina
 	:*:aleksander::Aleksander
 	:*:sondre::Sondre
 	::walle::Wall-E
+	::js::Jason
+	::rachael::Rachael
+	
 }
 
 { ;unicode signs
-	:*:wjx::★
-	:*:ckm::✔ 
-	:*:pushpin::📌
-	:*:bckm::☑
-	:*:qizhi::🚩
+	:*:wjx::★{space}
+	:*:ckm::✔{space}
+	:*:crs::❌{space} ;x mark
+	:*:pushpin::📌{space}
+	:*:bckm::☑{space} ;ballot box with check
+	:*:hckm::✅{space} ;heavy check mark
+	:*:qizhi::🚩{space}
+	:*:dollarsign::💲{space}
+}
+
+{ ;work related
+	:*:taa::Tested and abandoned
+	::cm::Concept Miner
+	:*:fm::Fannie Mae
+	:*:horizon::Horizon
+	:*:reportal::Reportal
+	:*:mb::Model Builder
+	:*:smarthub::SmartHub
+	::si::Selective Insurance
+	:*:rsc::RS Component
+	:*:sodexo::Sodexo
+	:*:mg::MoneyGram
+	:*:ln::LexisNexis
+	::lp::LeasePlan
+	:*:grainger::Grainger
+	:*:envigo::Envigo
+	:*:erie::Erie
+	::bestbuy::Best Buy
+	::cp::colorpicker
+	:*:fs::FlightSafety
+	::oe::Open-Ended
+	::ei::Erie Insurance
+	::pg::Press Ganey
+	:*:devops::DevOps
+}
+
+{ ;programming
+	:*:opx::openpyxl
 }

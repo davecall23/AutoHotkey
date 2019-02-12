@@ -18,23 +18,29 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #s:: ;Open Autohotkey's folder
    IfExist C:\Users\daweiz\Dropbox\PC settings\AutoHotKey
       Run C:\Users\daweiz\Dropbox\PC settings\AutoHotKey
-   IfNotExist C:\Users\daweiz\Dropbox\PC settings\AutoHotKey
+   IfExist D:\Dropbox\PC settings\AutoHotKey
       Run D:\Dropbox\PC settings\AutoHotKey
+   IfExist C:\Users\Dave\Dropbox\PC settings\AutoHotKey
+	  Run C:\Users\Dave\Dropbox\PC settings\AutoHotKey
 return
 
 
 #w:: ;Open Work folder
    IfExist C:\Users\daweiz\Dropbox\Dawei\Private working folder
       Run C:\Users\daweiz\Dropbox\Dawei\Private working folder
-   IfNotExist C:\Users\daweiz\Dropbox\Dawei\Private working folder
+   IfExist D:\Dropbox\Dawei\Private working folder
       Run D:\Dropbox\Dawei\Private working folder
+   IfExist C:\Users\Dave\Dropbox\Dawei\Private working folder
+      Run C:\Users\Dave\Dropbox\Dawei\Private working folder
 return
 
 #p:: ; Open Passwords Excel
    IfExist C:\Users\daweiz\Dropbox\Dawei\Passwords.xlsx
       Run C:\Users\daweiz\Dropbox\Dawei\Passwords.xlsx
-   IfNotExist C:\Users\daweiz\Dropbox\Dawei\Passwords.xlsx
+   IfExist D:\Dropbox\Dawei\Passwords.xlsx
       Run D:\Dropbox\Dawei\Passwords.xlsx
+   IfExist C:\Users\Dave\Dropbox\Dawei\Passwords.xlsx	  
+      Run C:\Users\Dave\Dropbox\Dawei\Passwords.xlsx
 return
 
 { ;Launching application/page
@@ -209,4 +215,33 @@ return
 		Run C:\Users\daweiz\Dropbox\PC settings\AutoHotKey\Text Analytics.ahk
 		
 	return
+}
+
+{ ;enclose the text in ()
+	^9::
+		send ^x
+		sleep 200
+		buffer1 := clipboard
+		send (%buffer1%)
+		buffer1 =
+		
+	Return
+}
+{ ;enclose the text in ""
+	^'::
+		send ^x
+		sleep 200
+		buffer2 := clipboard
+		send "%buffer2%"
+		buffer2 =
+	Return
+}
+{ ;enclose the text in []
+	^[::
+		send ^x
+		sleep 200
+		buffer2 := clipboard
+		send [%buffer2%]
+		buffer2 =
+	Return
 }
