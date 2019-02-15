@@ -438,7 +438,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	::fang::Fang
 	::dawei::Dawei
 	:*:dz::dawei.zhu
-	::jiena::Jiena	
 	:*:andreas::Andreas
 	:*:kjetil::Kjetil
 	:*:ekt::Ekaterina
@@ -446,7 +445,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:sondre::Sondre
 	::walle::Wall-E
 	::js::Jason
-	::rachael::Rachael
+	
 	
 }
 
@@ -486,7 +485,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	::pg::Press Ganey
 	:*:devops::DevOps
 	::cc::Computacenter
-	::sf::Screwfix
+	:*:sf::Screwfix
+	:*:voc::VoC
+	:*:voe::VoE
+	
+	::rachael::Rachael
+	::vikki::Vikki
+	::andy::Andy
 }
 
 { ;programming
