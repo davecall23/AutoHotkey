@@ -400,7 +400,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:thinkpad::ThinkPad
 	:*:toshiba::Toshiba
 	:*:toyota::Toyota
-	:*:tm::Total Commander
+	::tm::Total Commander
 	:*:twitter::Twitter
 	:*:tt::Twitter
 	:*:tmobile::T-Mobile
@@ -488,6 +488,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	:*:sf::Screwfix
 	:*:voc::VoC
 	:*:voe::VoE
+	:*:bupa::Bupa
+	::enhancer::Enhance Research
 	
 	::rachael::Rachael
 	::vikki::Vikki

@@ -9,7 +9,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
       Menu, Tray, Icon, %A_WorkingDir%\Icons\Lucky.ico
    else
       MsgBox Unable to find ico file
-   return
+	return
 }
 
 #Include Abbreviations.ahk ; The name of the file to be included, which is assumed to be in the startup/working directory if an absolute path is not specified (both Autohotkey files are in the same folder)
@@ -20,32 +20,22 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
       Run C:\Users\daweiz\Dropbox\PC settings\AutoHotKey
    IfExist D:\Dropbox\PC settings\AutoHotKey
       Run D:\Dropbox\PC settings\AutoHotKey
-   IfExist C:\Users\Dave\Dropbox\PC settings\AutoHotKey
-	  Run C:\Users\Dave\Dropbox\PC settings\AutoHotKey
+   IfExist C:\Users\Dave Main\Dropbox\PC settings\AutoHotKey
+	  Run C:\Users\Dave Main\Dropbox\PC settings\AutoHotKey
 return
 
-
-#w:: ;Open Work folder
-   IfExist C:\Users\daweiz\Dropbox\Dawei\Private working folder
-      Run C:\Users\daweiz\Dropbox\Dawei\Private working folder
-   IfExist D:\Dropbox\Dawei\Private working folder
-      Run D:\Dropbox\Dawei\Private working folder
-   IfExist C:\Users\Dave\Dropbox\Dawei\Private working folder
-      Run C:\Users\Dave\Dropbox\Dawei\Private working folder
-return
 
 #p:: ; Open Passwords Excel
-   IfExist C:\Users\daweiz\Dropbox\Dawei\Passwords.xlsx
+   IfExist C:\Users\daweiz\Dropbox\Dawei\Passwords.xlsx ;Work laptop
       Run C:\Users\daweiz\Dropbox\Dawei\Passwords.xlsx
-   IfExist D:\Dropbox\Dawei\Passwords.xlsx
+   IfExist D:\Dropbox\Dawei\Passwords.xlsx ;ThinkPad laptop
       Run D:\Dropbox\Dawei\Passwords.xlsx
-   IfExist C:\Users\Dave\Dropbox\Dawei\Passwords.xlsx	  
-      Run C:\Users\Dave\Dropbox\Dawei\Passwords.xlsx
+   IfExist C:\Users\Dave Main\Dropbox\Dawei\Passwords.xlsx ;Dell M4800 laptop 
+      Run C:\Users\Dave Main\Dropbox\Dawei\Passwords.xlsx
 return
 
 { ;Launching application/page
    ^n::run Notepad
-   #m::run https://genius.euro.confirmit.com/login
    #q::
 	    Run https://www.google.com
         WinWait Google - Mozilla Firefox
@@ -64,14 +54,19 @@ return
       Gui,Add,MonthCal,4
       Gui,add,Text,,The current week is week%CurrentWeek%, %A_YYYY%
       Gui,show,,Calender
-   return
+	return
 }
 
 { ;Input time & date at the present time
    #n::
       FormatTime,TimeNow,,yyyy-MM-dd dddd, HH:mm
       Send %TimeNow%
-   return
+	return
+   
+   #m::
+	  FormatTime,TimeNow,,yyyyMMdd
+	  Send %TimeNow%
+	return
 }
 
 { ;Set current Window on top
@@ -82,7 +77,7 @@ return
          WinSet,AlwaysOnTop,Off,A ;Set the current window not on top
       IfMsgBox,yes
          WinSet,AlwaysOnTop,On,A ;Set the current window on top
-   return
+	return
 }
    
 ^Esc::Suspend ;Suspend the autohotkey shortcut
@@ -126,10 +121,10 @@ return
                return
             }
       }
-   return
+	return
 }
 
-{ ;Make the laptop sleep
+{ ;Shutdown/reboot
    #Escape::
       gui,new,,Power Status Change
       gui,font,s12,Arial bold
@@ -173,13 +168,13 @@ return
         Gui destroy
 		*/
       return
-   return 
+	return 
 }
 
 { ;this lable is used to close the active gui window by pressing Esc key
    GuiEscape:
       Gui destroy
-   return
+	return
 }
 
 
@@ -197,7 +192,7 @@ return
 		 Gui destroy
          Send !{F4}
          return
-   return 
+	return 
 }
 
 { ;reload the scripts
